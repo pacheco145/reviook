@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('styles/home.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="home-heading">
+        <h1>Reviook</h1>
+    </div>
+    <div class="books-container">
+        {% for book in homeBooks %}
+            <a class="book" href="{{ path('bookDetail', {idBook: book.isbn })}}" >
+                <div class="book__image">
+                    <img src="{{book.image}}" alt="">
+                </div>
+                <div class="book__info">
+                    <h2 class="book__title">{{book.title}}</h2>
+                    <h3 class="book__author">{{book.author}}</h3>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

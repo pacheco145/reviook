@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('styles/book-detail.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="book-detail">
+        <div class="book-detail__image">
+            <img src="{{bookById.image}}" alt="">
+        </div>
+        <div class="book-detail__info">
+            <h2>{{bookById.title}}</h2>
+            <p class="book-detail__author">{{bookById.author}}</p>
+            <p class="book-detail__other-data">ISBN: {{bookById.isbn}}</p>
+            <p class="book-detail__other-data">Editorial: {{bookById.publisher}}</p>
+            <div class="book-detail__synopsis">
+                <p class="book-detail__resumen">Resumen</p>
+                <p class="book-detail__text">{{bookById.synopsis}}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

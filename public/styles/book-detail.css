@@ -26,18 +26,36 @@
     font-size: 26px;
 }
 
-
 .book-detail__author {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 16px;
     margin-bottom: 20px;
+    font-weight: 300;
 }
 
 .book-detail__other-data {
     font-weight: 100;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 13px;
     margin: 3px 0;
+}
+
+.book-detail__add-review {
+    margin-top: 10px;
+    width: 140px;
+    padding: 6px;
+    background-color: #414141;
+    border: none;
+    color: white;
+    font-family: "EB Garamond";
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.book-detail__add-review:hover {
+    background-color: var(--btn-hover);
 }
 
 .book-detail__synopsis {
@@ -47,15 +65,31 @@
 }
 
 .book-detail__resumen {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 8px;
 }
 
 .book-detail__info .book-detail__text {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 100;
     font-size: 15px;
     line-height: 20px;
+}
+
+.book-detail__info .book-detail__content {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-detail__info .book-detail__text::after {
+    content: 'Show more';
+}
+
+.book-detail__more {
+    /* color: blue; */
+    text-decoration: underline;
 }

@@ -1,0 +1,139 @@
+.add-review {
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    max-width: 60%;
+}
+
+.add-review__upper {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-review__image {
+    border-radius: 8px;
+    height: 45vh;
+    margin-right: 50px;
+}
+
+.add-review__image img {
+    height: 100%;
+    /* height: 100%;
+    object-fit: cover; */
+}
+
+.add-review__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-review__info h2 {
+    /* font-family: 'Open sans', sans-serif; */
+    font-size: 26px;
+}
+
+.add-review__author {
+    font-family: "Open Sans";
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.add-review__other-data {
+    font-weight: 100;
+    font-family: "Open Sans";
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+#write_review_form div {
+    display: flex;
+    flex-direction: column;
+}
+
+#write_review_form label {
+    margin-bottom: 10px;
+    margin-top: 16px;
+}
+
+#write_review_form textarea {
+    width: 450px;
+    height: 100px;
+    border-radius: 4px;
+    padding: 8px 12px;
+    /* font-family: 'EB Garamond';
+    font-size: 15px;
+    font-weight: 500; */
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+}
+
+.add-review-form label {
+    margin-bottom: 10px;
+    margin-top: 16px;
+}
+
+.add-review-form textarea {
+    width: 450px;
+}
+
+.add-review__add-review {
+    margin-top: 10px;
+    width: 140px;
+    padding: 6px;
+    background-color: #414141;
+    border: none;
+    color: white;
+    font-family: "EB Garamond";
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.add-review__add-review:hover {
+    background-color: var(--btn-hover);
+}
+
+.add-review__synopsis {
+    margin: 40px 0 5px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.add-review__resumen {
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.add-review__text {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.add-review__content {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.add-review__text::after {
+    content: 'Show more';
+}
+
+.add-review__more {
+    /* color: blue; */
+    text-decoration: underline;
+}
+
+.add-review-form {
+    display: flex;
+    flex-direction: column;
+}

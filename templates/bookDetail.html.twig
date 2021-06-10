@@ -14,9 +14,15 @@
             <p class="book-detail__author">{{bookById.author}}</p>
             <p class="book-detail__other-data">ISBN: {{bookById.isbn}}</p>
             <p class="book-detail__other-data">Editorial: {{bookById.publisher}}</p>
+            <button class="book-detail__add-review">
+                <a href="{{ path('writeReview', {id: bookById.isbn })}}">Add review</a>
+            </button>
             <div class="book-detail__synopsis">
                 <p class="book-detail__resumen">Resumen</p>
-                <p class="book-detail__text">{{bookById.synopsis}}</p>
+                <p class="book-detail__text">
+                    <span class="book-detail__content">{{bookById.synopsis}}</span>
+                    <!-- <span class="book-detail__more">Show more</span> -->
+                </p>
             </div>
         </div>
     </div>

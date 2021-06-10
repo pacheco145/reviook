@@ -1,7 +1,48 @@
-{% extends 'myAccount/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block content %}
+{% block stylesheets %}
+<!-- <link href="{{ asset('styles/book-detail.css') }}" type="text/css" rel="stylesheet"/> -->
+<link href="{{ asset('styles/write-review.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
 
-    <h1>Write review</h1>
-
+{% block body %}
+<div class="add-review">
+    <div class="add-review__upper">
+        <div class="add-review__image">
+            <img src="{{bookById.image}}" alt="">
+        </div>
+        <div class="add-review__info">
+            <h2>{{bookById.title}}</h2>
+            <p class="add-review__author">{{bookById.author}}</p>
+            <p class="add-review__other-data">ISBN: {{bookById.isbn}}</p>
+            <p class="add-review__other-data">Editorial: {{bookById.publisher}}</p>
+            {{ form_start(reviewForm) }}
+                {{ form_widget(reviewForm) }}
+                <!-- <input type="text" name="" value="{{bookById.isbn}}" id=""> -->
+                <button class="add-review__add-review" type="submit">
+                    Add review
+                </button>
+            {{ form_end(reviewForm) }}
+            {% for message in app.flashes('success') %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            <!-- <form class="add-review-form" action="">
+                <label for="">Write your review</label>
+                <textarea name="review" id="review" cols="30" rows="10"></textarea>
+                <button class="add-review__add-review" type="submit">
+                    Add review
+                </button>
+            </form> -->
+        </div>
+    </div>
+    <div class="add-review__lower">
+        <div class="add-review__synopsis">
+            <p class="add-review__resumen">Resumen</p>
+            <p class="add-review__text">
+                <span class="add-review__content">{{bookById.synopsis}}</span>
+                <!-- <span class="add-review__more">Show more</span> -->
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}

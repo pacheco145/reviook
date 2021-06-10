@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ asset('styles/book-detail.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ asset('styles/my-account.css') }}" type="text/css" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
     <div class="user">
         <div class="user__image">
-            <img src="" alt="">
+            <img src="{{ asset('images/user.svg') }}" alt="">
         </div>
         <div class="user__info">
             <h1>username</h1>

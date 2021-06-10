@@ -1,0 +1,27 @@
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+}
+
+.user__image {
+    width: 20vw;
+    height: 20vw;
+    margin-right: 50px;
+}
+
+.user__image img {
+    width: 100%;
+}
+
+.user__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.my-reviews {
+    text-align: center;
+    width: 100%;
+}

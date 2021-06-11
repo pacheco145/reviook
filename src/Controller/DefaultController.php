@@ -4,12 +4,15 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Entity\User;
 use App\Form\WriteReviewFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class DefaultController extends AbstractController
 {
@@ -45,7 +48,10 @@ class DefaultController extends AbstractController
 
         return $this->render(
             "bookDetail.html.twig",
-            ["bookById"=>$book]
+            [
+                "bookById"=>$book,
+                "myArray"=> [1,2,3,4,5,6,7,8,9,10,11,12]            
+            ]
         );
 
     }
@@ -56,7 +62,8 @@ class DefaultController extends AbstractController
     public function myAccount()
     {
         return $this->render(
-            "myAccount/base.html.twig"
+            "myAccount/base.html.twig",
+            ["myArray"=> [1,2,3,4,5,6,7,8,9,10,11,12]]
         );
 
     }
@@ -73,19 +80,23 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route ("/book/{id}/write", name="writeReview")
+     * @Route ("/myAccount/book/{id}/write", name="writeReview")
      */
-    public function writeReview( Book $book, Request $request, EntityManagerInterface $doctrine)
+    public function writeReview( LoggerInterface $logger, Book $book, Request $request, EntityManagerInterface $doctrine, AuthenticationUtils $authenticationUtils)
     {
 
         $form = $this->createForm(WriteReviewFormType::class);
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        $user = $this->getUser();
+        // $userId = $user->getId();
+        $logger->info('Cosa');
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $review = $form->getData();
             $review->setCodLibro($book);
-
+            $review->setCodUser($user);
 
             $doctrine->persist($review);
             $doctrine->flush();

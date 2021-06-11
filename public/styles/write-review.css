@@ -79,7 +79,7 @@
     width: 450px;
 }
 
-.add-review__add-review {
+/* .add-review__add-review {
     margin-top: 10px;
     width: 140px;
     padding: 6px;
@@ -95,7 +95,7 @@
 
 .add-review__add-review:hover {
     background-color: var(--btn-hover);
-}
+} */
 
 .add-review__synopsis {
     margin: 40px 0 5px;

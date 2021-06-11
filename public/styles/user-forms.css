@@ -1,0 +1,29 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 50px;
+    max-width: 250px;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+}
+
+#register_form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-bottom: 5px;
+}
+
+.form-container input {
+    margin-bottom: 12px;
+    border-radius: 4px;
+    padding: 5px 9px;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+}

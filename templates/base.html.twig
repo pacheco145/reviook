@@ -28,9 +28,15 @@
             </span>
             <div class="navbar__toggle" id="target" >
                 <!-- <span>Log in</span> -->
-                <a href="{{ path('myAccount')}}" >My account</a>
-                <hr>
-                <span>Register</span>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('myAccount')}}" >My account</a>
+                    <hr>
+                    <a href="{{ path('app_logout')}}" >Logout</a>
+                {% else %}
+                    <a href="{{ path('app_login')}}" >Log in</a>
+                    <hr>
+                    <a href="{{ path('app_register')}}" >Register</a>
+                {% endif %}
             </div>
         </nav>
         <div class="nav-space"></div>

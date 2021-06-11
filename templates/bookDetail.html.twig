@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     <link href="{{ asset('styles/book-detail.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ asset('styles/reviews.css') }}" type="text/css" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
@@ -24,6 +25,21 @@
                     <!-- <span class="book-detail__more">Show more</span> -->
                 </p>
             </div>
+        </div>
+    </div>
+    <div class="reviews-container">
+        <div class="reviews-inner">
+            {% for item in myArray %}
+                <div class="review">
+                    <div class="review__img">
+                        <img src="{{ asset('images/user.svg') }}" alt="">
+                    </div>
+                    <div class="review__info">
+                        <span class="review__title">Book title</span>
+                        <p class="review__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos harum, nemo eveniet doloribus numquam iusto vero velit quas, in earum cum, ipsam odio fugiat eligendi. Expedita in eius doloremque!</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

@@ -19,13 +19,10 @@
             {{ form_start(reviewForm) }}
                 {{ form_widget(reviewForm) }}
                 <!-- <input type="text" name="" value="{{bookById.isbn}}" id=""> -->
-                <button class="add-review__add-review" type="submit">
+                <button class="btn" type="submit">
                     Add review
                 </button>
             {{ form_end(reviewForm) }}
-            {% for message in app.flashes('success') %}
-                <p>{{ message }}</p>
-            {% endfor %}
             <!-- <form class="add-review-form" action="">
                 <label for="">Write your review</label>
                 <textarea name="review" id="review" cols="30" rows="10"></textarea>

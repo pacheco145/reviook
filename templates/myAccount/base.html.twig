@@ -11,21 +11,32 @@
             <img src="{{ asset('images/user.svg') }}" alt="">
         </div>
         <div class="user__info">
-            <h1>{{app.user.username}}</h1>
-            <p>Amount of reviews</p>
+            <h1>@{{app.user.username}}</h1>
+            <p>Amount of reviews: {{amountReviews}}</p>
         </div>
     </div>
     {% block content %}{% endblock %}
     <div class="reviews-container">
         <div class="reviews-inner">
-            {% for item in myArray %}
+            {% for review in reviews | reverse %}
             <div class="review">
                     <div class="review__img">
-                        <img src="{{ asset('images/user.svg') }}" alt="">
+                        <img src="{{review.codLibro.image}}" alt="">
                     </div>
                     <div class="review__info">
-                        <span class="review__title">Book title</span>
-                        <p class="review__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos harum, nemo eveniet doloribus numquam iusto vero velit quas, in earum cum, ipsam odio fugiat eligendi. Expedita in eius doloremque!</p>
+                        <a class="review__title" href="{{ path('bookDetail', {idBook: review.codLibro.isbn })}}">{{review.codLibro.title}}</a>
+                        <p class="review__text">« {{review.text}} »</p>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for book in loremBooks %}
+            <div class="review">
+                    <div class="review__img">
+                        <img src="{{book.image}}" alt="">
+                    </div>
+                    <div class="review__info">
+                        <a class="review__title" href="{{ path('bookDetail', {idBook: book.isbn })}}">{{book.title}}</a>
+                        <p class="review__text">« Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae adipisci fugit maxime consequuntur, nam quas atque. »</p>
                     </div>
                 </div>
             {% endfor %}

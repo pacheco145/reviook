@@ -45,12 +45,13 @@ class DefaultController extends AbstractController
 
         $repo = $doctrine->getRepository(Book::class);
         $book = $repo->find($idBook);
+        $loremUsers = ['pablo','m_martins','first_user','another','lorem_user','lorem132','user41','peter468'];
 
         return $this->render(
             "bookDetail.html.twig",
             [
                 "bookById"=>$book,
-                "myArray"=> [1,2,3,4,5,6,7,8,9,10,11,12]            
+                "loremUsers"=>$loremUsers            
             ]
         );
 
@@ -59,11 +60,30 @@ class DefaultController extends AbstractController
     /**
      * @Route ("/myAccount", name="myAccount")
      */
-    public function myAccount()
+    public function myAccount(EntityManagerInterface $doctrine, LoggerInterface $logger)
     {
+        // $repo = $doctrine->getRepository(User::class);
+        // $books = $repo->findAll();
+
+        $logger->info('Cosa');
+
+        $user = $this->getUser();
+        $reviews = $user->getReviews();
+        // dump($reviews);
+        // arsort($reviews);
+        $amountReviews = count($reviews);
+        // $codLibro = $reviews->getCodLibro();
+
+        $repo = $doctrine->getRepository(Book::class);
+        $loremBooks = $repo->findAll();
+
         return $this->render(
             "myAccount/base.html.twig",
-            ["myArray"=> [1,2,3,4,5,6,7,8,9,10,11,12]]
+            [
+                "reviews"=> $reviews,
+                "amountReviews"=>$amountReviews,
+                "loremBooks"=>$loremBooks
+            ]
         );
 
     }

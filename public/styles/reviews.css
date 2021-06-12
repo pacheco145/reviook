@@ -29,19 +29,26 @@
 .review {
     min-width: 400px;
     background-color: var(--secondary-color);
-    padding: 20px;
+    padding: 20px 25px;
     margin: 10px;
     border-radius: 4px;
     display: flex;
+    max-width: 40%;
+    align-items: center;
 }
 
 .review__img {
     display: flex;
     margin-right: 22px;
+    /* border-radius: 4px;
+    overflow: hidden;
+    width: 200px; */
+    align-items: center;
 }
 
 .review__img img {
-    width: 50px;
+    width: 60px;
+    border-radius: 4px;
 }
 
 .review span {
@@ -50,8 +57,12 @@
     font-weight: 300;
 }
 
-.review p {
+.review__text {
     font-size: 13px;
     font-family: 'Cormorant Garamond';
     margin-top: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
